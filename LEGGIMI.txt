@@ -1,0 +1,19 @@
+COME OTTENERE L'APK (senza Android Studio)
+
+1. Crea un account su github.com (se non l'hai) e fai login.
+2. Clicca "+" in alto a destra > "New repository". Nome: ScreenTimeout. Lascialo Private o Public, poi "Create repository".
+3. Nella pagina del repository clicca "uploading an existing file".
+4. Estrai lo zip sul PC e trascina DENTRO la pagina TUTTO il contenuto della cartella ScreenTimeoutApp
+   (cartella "app", cartella ".github", settings.gradle.kts, build.gradle.kts, gradle.properties).
+   Se la cartella nascosta ".github" non si trascina, vedi il punto 4b.
+5. In fondo clicca "Commit changes".
+6. Vai nella scheda "Actions": parte da sola la compilazione "Build APK" (2-4 minuti, pallino verde = ok).
+7. Clicca sull'esecuzione completata > in fondo "Artifacts" > scarica "ScreenTimeout-apk" (e' uno zip con dentro app-debug.apk).
+8. Passa l'APK al telefono, aprilo e consenti "Installa da fonti sconosciute".
+
+4b. Se .github non si carica: "Add file" > "Create new file", scrivi come nome  .github/workflows/build.yml
+    (digitando le "/" crea le cartelle), incolla il contenuto del file build.yml e fai "Commit changes".
+
+DOPO L'INSTALLAZIONE
+- Apri l'app "Timeout schermo", tocca "Concedi permesso" e attiva "Consenti modifica impostazioni di sistema".
+- Tendina in alto > matita > trascina il riquadro "Timeout schermo" tra quelli attivi.
