@@ -17,3 +17,8 @@ COME OTTENERE L'APK (senza Android Studio)
 DOPO L'INSTALLAZIONE
 - Apri l'app "Timeout schermo", tocca "Concedi permesso" e attiva "Consenti modifica impostazioni di sistema".
 - Tendina in alto > matita > trascina il riquadro "Timeout schermo" tra quelli attivi.
+
+WIDGET (schermata home)
+- Tieni premuto sullo sfondo della home > Widget > "Timeout schermo" > trascina il teschio dove vuoi.
+- Teschio originale = spegnimento a 15 secondi; teschio rosso sangue = 10 minuti. Un tocco alterna.
+- Per aggiornare l'app: carica i file nuovi nel repository (sovrascrivi) e riscarica l'APK da Actions.

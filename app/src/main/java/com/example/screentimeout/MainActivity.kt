@@ -9,9 +9,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-private const val SHORT_MS = 15_000
-private const val LONG_MS = 600_000
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var status: TextView
@@ -31,19 +28,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(root)
 
         button.setOnClickListener {
-            if (!Settings.System.canWrite(this)) {
+            if (!TimeoutUtil.canWrite(this)) {
                 startActivity(
                     Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
                         .setData(Uri.parse("package:$packageName"))
                 )
             } else {
-                val cur = Settings.System.getInt(
-                    contentResolver, Settings.System.SCREEN_OFF_TIMEOUT, SHORT_MS
-                )
-                Settings.System.putInt(
-                    contentResolver, Settings.System.SCREEN_OFF_TIMEOUT,
-                    if (cur >= LONG_MS) SHORT_MS else LONG_MS
-                )
+                TimeoutUtil.toggle(this)
             }
             refresh()
         }
@@ -55,15 +46,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refresh() {
-        if (!Settings.System.canWrite(this)) {
+        if (!TimeoutUtil.canWrite(this)) {
             status.text = "Permesso mancante"
             button.text = "Concedi permesso"
-            return
+        } else {
+            status.text = if (TimeoutUtil.isLong(this)) "Spegnimento: 10 minuti" else "Spegnimento: 15 secondi"
+            button.text = "Cambia"
         }
-        val cur = Settings.System.getInt(
-            contentResolver, Settings.System.SCREEN_OFF_TIMEOUT, SHORT_MS
-        )
-        status.text = if (cur >= LONG_MS) "Spegnimento: 10 minuti" else "Spegnimento: 15 secondi"
-        button.text = "Cambia"
+        ScreenWidgetProvider.updateAll(this)
     }
 }
