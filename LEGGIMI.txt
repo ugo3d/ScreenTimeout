@@ -22,3 +22,11 @@ WIDGET (schermata home)
 - Tieni premuto sullo sfondo della home > Widget > "Timeout schermo" > trascina il teschio dove vuoi.
 - Teschio originale = spegnimento a 15 secondi; teschio rosso sangue = 10 minuti. Un tocco alterna.
 - Per aggiornare l'app: carica i file nuovi nel repository (sovrascrivi) e riscarica l'APK da Actions.
+
+IMPORTANTE - CARTELLE SU GITHUB
+Nel repository, nella scheda "Code", devi vedere direttamente questi elementi alla radice:
+  .github   app   build.gradle.kts   gradle.properties   settings.gradle.kts
+Se vedi una sola cartella "ScreenTimeoutApp" che li contiene, hai caricato la cartella invece del suo contenuto: cancellala e ricarica il CONTENUTO.
+
+Dopo questa versione l'APK ha una firma fissa: i prossimi aggiornamenti si installano sopra quello vecchio.
+Ma la PRIMA volta devi disinstallare la versione precedente.

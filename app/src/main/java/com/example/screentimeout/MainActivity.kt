@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             status.text = if (TimeoutUtil.isLong(this)) "Spegnimento: 10 minuti" else "Spegnimento: 15 secondi"
             button.text = "Cambia"
         }
+        status.append("\n\nVersione 2.0 (con widget)")
         ScreenWidgetProvider.updateAll(this)
     }
 }

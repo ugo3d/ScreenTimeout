@@ -11,8 +11,23 @@ android {
         applicationId = "com.example.screentimeout"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
+    }
+
+    signingConfigs {
+        create("fixed") {
+            storeFile = file("fixed.keystore")
+            storePassword = "android"
+            keyAlias = "skull"
+            keyPassword = "android"
+        }
+    }
+
+    buildTypes {
+        getByName("debug") {
+            signingConfig = signingConfigs.getByName("fixed")
+        }
     }
 
     compileOptions {
